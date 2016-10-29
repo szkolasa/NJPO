@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IGame.cs" />
+    <Compile Include="Domain\Card.cs" />
     <Compile Include="Domain\Casino.cs" />
+    <Compile Include="Domain\ListExtension.cs" />
     <Compile Include="Games\BlackJack.cs" />
     <Compile Include="Games\SlotMachine.cs" />
     <Compile Include="Program.cs" />
