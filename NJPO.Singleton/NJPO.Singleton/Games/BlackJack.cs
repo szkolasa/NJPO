@@ -60,7 +60,7 @@ namespace NJPO.Singleton.Games
 
                             if (playerCards.Sum(x => x.Value) == 21)
                             {
-                                Console.WriteLine("Blackjack!");
+                                Console.WriteLine("\nBlackjack!");
                                 Console.Write("Twoje karty: ");
                                 PrintCards(playerCards);
 
@@ -74,12 +74,12 @@ namespace NJPO.Singleton.Games
                                 if (casinoCards.Sum(x => x.Value) > 10)
                                 {
                                     var higherCard = casinoCards.OrderBy(x => x.Value).First();
-                                    Console.WriteLine($"Karta krupiera: {higherCard.Color}{higherCard.Symbol}");
+                                    Console.WriteLine($"\nKarta krupiera: {higherCard.Color}{higherCard.Symbol}");
                                 }
                                 else
                                 {
                                     var lowerCard = casinoCards.OrderByDescending(x => x.Value).First();
-                                    Console.WriteLine($"Karta krupiera: {lowerCard.Color}{lowerCard.Symbol}\n");
+                                    Console.WriteLine($"\nKarta krupiera: {lowerCard.Color}{lowerCard.Symbol}\n");
                                 }
 
                                 Console.Write("Twoje karty: ");
@@ -105,13 +105,13 @@ namespace NJPO.Singleton.Games
 
                                             if (playerCards.Sum(x => x.Value) > 21)
                                             {
-                                                Console.WriteLine("Przegrałeś! Za dużo!");
+                                                Console.WriteLine("\nPrzegrałeś! Za dużo!");
                                                 playerContinue = false;
                                             }
                                         }
                                         else if (playerOption == 2)
                                         {
-                                            Console.Write("Twoje karty: ");
+                                            Console.Write("\nTwoje karty: ");
                                             PrintCards(playerCards);
                                             Console.WriteLine($"\nWartość: {playerCards.Sum(x => x.Value)}");
 
@@ -119,7 +119,7 @@ namespace NJPO.Singleton.Games
                                         }
                                         else
                                         {
-                                            Console.WriteLine("Nie rozumiem polecenia!");
+                                            Console.WriteLine("\nNie rozumiem polecenia!");
                                         }
                                     }
                                 } while (playerContinue);
@@ -140,20 +140,20 @@ namespace NJPO.Singleton.Games
 
                                     if (casinoCards.Sum(x => x.Value) > 21)
                                     {
-                                        Console.WriteLine($"Wygrałeś!\nWartość Twoich kart: {playerCards.Sum(x => x.Value)}\nWartość kart krupiera: {casinoCards.Sum(x => x.Value)}");
+                                        Console.WriteLine($"\nWygrałeś!\nWartość Twoich kart: {playerCards.Sum(x => x.Value)}\nWartość kart krupiera: {casinoCards.Sum(x => x.Value)}\n");
                                         casino.AddMoney(2 * bets[bet - 1]);
                                     } else if (casinoCards.Sum(x => x.Value) > playerCards.Sum(x => x.Value))
                                     {
-                                        Console.WriteLine($"\nPrzegrałeś!\nWartość Twoich kart: {playerCards.Sum(x => x.Value)}\nWartość kart krupiera: {casinoCards.Sum(x => x.Value)}");
+                                        Console.WriteLine($"\nPrzegrałeś!\nWartość Twoich kart: {playerCards.Sum(x => x.Value)}\nWartość kart krupiera: {casinoCards.Sum(x => x.Value)}\n");
                                     }
                                     else if (casinoCards.Sum(x => x.Value) < playerCards.Sum(x => x.Value))
                                     {
-                                        Console.WriteLine($"\nWygrałeś!\nWartość Twoich kart: {playerCards.Sum(x => x.Value)}\nWartość kart krupiera: {casinoCards.Sum(x => x.Value)}");
+                                        Console.WriteLine($"\nWygrałeś!\nWartość Twoich kart: {playerCards.Sum(x => x.Value)}\nWartość kart krupiera: {casinoCards.Sum(x => x.Value)}\n");
                                         casino.AddMoney(2 * bets[bet - 1]);
                                     }
                                     else
                                     {
-                                        Console.WriteLine($"\nRemis!\nWartość Twoich kart: {playerCards.Sum(x => x.Value)}\nWartość kart krupiera: {casinoCards.Sum(x => x.Value)}");
+                                        Console.WriteLine($"\nRemis!\nWartość Twoich kart: {playerCards.Sum(x => x.Value)}\nWartość kart krupiera: {casinoCards.Sum(x => x.Value)}\n");
                                         casino.AddMoney(bets[bet - 1]);
                                     }
                                 }
@@ -183,7 +183,7 @@ namespace NJPO.Singleton.Games
         {
             foreach (var card in cards)
             {
-                Console.Write($"{card.Color}{card.Symbol}");
+                Console.Write($"{card.Color}{card.Symbol} ");
             }
         }
 
