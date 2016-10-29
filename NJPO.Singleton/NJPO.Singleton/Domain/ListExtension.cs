@@ -7,6 +7,11 @@ namespace NJPO.Singleton.Domain
     {
         private static Random rng = new Random();
 
+        /// <summary>
+        /// Adds Shuffle method to generic List class
+        /// </summary>
+        /// <typeparam name="T">type</typeparam>
+        /// <param name="list"></param>
         public static void Shuffle<T>(this IList<T> list)
         {
             int n = list.Count;

@@ -175,6 +175,10 @@ namespace NJPO.Singleton.Games
             } while (bet != 9);
         }
 
+        /// <summary>
+        /// Prints cards to console output
+        /// </summary>
+        /// <param name="cards">List with <c>Card</c>'s</param>
         private void PrintCards(List<Card> cards)
         {
             foreach (var card in cards)
@@ -183,6 +187,10 @@ namespace NJPO.Singleton.Games
             }
         }
 
+        /// <summary>
+        /// Fills deck
+        /// </summary>
+        /// <returns>List with 52 <c>Card</c>s</returns>
         private async Task<List<Card>> CreateDeck()
         {
             var deck = new List<Card>();
