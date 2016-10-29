@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +16,7 @@ namespace NJPO.Singleton.Games
         {
             var deck = CreateDeck().Result;
 
-            // To show card colors
+            // To show card colors in console
             Console.OutputEncoding = Encoding.UTF8;
 
             var bets = new[] { 1, 5, 10, 25, 50, 100 };
