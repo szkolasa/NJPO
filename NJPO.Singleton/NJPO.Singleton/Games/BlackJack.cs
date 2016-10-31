@@ -14,7 +14,17 @@ namespace NJPO.Singleton.Games
 
         public void Play(Casino casino)
         {
-            throw new NotImplementedException();
+            var colors = new List<char>(new [] 
+            {
+                '\u2660',
+                '\u2665',
+                '\u2666',
+                '\u2663'
+            });
+
+            var deck = new List<Card>();
+
+
         }
     }
 }
