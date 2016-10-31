@@ -73,7 +73,6 @@ namespace NJPO.Singleton.Games
                         }
                         catch (IndexOutOfRangeException)
                         {
-
                             Console.WriteLine("Nie rozumiem polecenia!");
                         }
                         catch (Exception e)

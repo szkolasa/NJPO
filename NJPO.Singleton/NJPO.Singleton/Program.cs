@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using NJPO.Singleton.Abstract;
 using NJPO.Singleton.Domain;
 using NJPO.Singleton.Games;
@@ -11,6 +12,8 @@ namespace NJPO.Singleton
     {
         static void Main()
         {
+            Console.Title = "Symulator kasyna";
+
             var casino = Casino.Instance;
             var games = new List<IGame>(new IGame[]
             {
@@ -25,7 +28,7 @@ namespace NJPO.Singleton
             {
                 Console.WriteLine("********** Symulator kasyna **********\n");
                 Console.WriteLine("Stan konta: {0:c}\n", casino.Money);
-                //https://en.wikipedia.org/wiki/Playing_cards_in_Unicode
+                
                 for (int i = 0; i < games.Count; i++)
                 {
                     Console.WriteLine($"{i + 1}) {games[i].Name}");
@@ -53,7 +56,8 @@ namespace NJPO.Singleton
                 Console.Clear();
             } while (menuOption != 9);
 
-            Console.ReadKey();
+            Console.WriteLine("Do widzenia!");
+            Thread.Sleep(1500);
         }
     }
 }
