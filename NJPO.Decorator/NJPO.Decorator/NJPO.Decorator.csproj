@@ -44,7 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\RoadUser.cs" />
+    <Compile Include="Abstract\RoadUserDecorator.cs" />
+    <Compile Include="Concrete\Cyclist.cs" />
+    <Compile Include="Concrete\Driver.cs" />
+    <Compile Include="Concrete\Pedestrian.cs" />
+    <Compile Include="Decorators\CyclistToPedestrianDecorator.cs" />
+    <Compile Include="Decorators\DriverToPedestrianDecorator.cs" />
+    <Compile Include="Decorators\PedestrainToCyclistDecorator.cs" />
+    <Compile Include="Decorators\PedestrianToDriverDecorator.cs" />
     <Compile Include="Domain\LineCounter.cs" />
+    <Compile Include="Domain\RoadSimulator.cs" />
     <Compile Include="Domain\WordCounter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -52,6 +62,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

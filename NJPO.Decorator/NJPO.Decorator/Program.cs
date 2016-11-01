@@ -36,6 +36,7 @@ namespace NJPO.Decorator
                             new WordCounter();
                             break;
                         case 3:
+                            new RoadSimulator();
                             break;
                         case 9:
                             Console.WriteLine("Do widzenia!");
