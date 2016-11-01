@@ -108,7 +108,6 @@ namespace NJPO.Decorator.Domain
                     
                 }
 
-                Console.CursorTop = 0;
                 Console.ReadLine();
 
                 if (collision)
