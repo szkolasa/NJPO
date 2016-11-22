@@ -1,0 +1,59 @@
+﻿<Window x:Class="NJPO.GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NJPO.GUI"
+        mc:Ignorable="d"
+        Title="NJPO - GUI" Height="768" Width="1024">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Zadanie 1">
+                <StackPanel Margin="10">
+                    <Label Content="Wpisz swoje imię:" />
+                    <TextBox x:Name="nameTextBox" Width="300" HorizontalAlignment="Left" />
+                    <Button Content="Zatwierdź" Width="100" HorizontalAlignment="Left" Margin="0,10,0,0" Click="Button_Click" />
+                    <Label x:Name="helloLabel" />
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Zadanie 2">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <StackPanel>
+                        <Label Content="Pierwsza liczba:" />
+                        <TextBox x:Name="num1Box" Width="200" HorizontalAlignment="Left" />
+                        <Label Content="Druga liczba:" />
+                        <TextBox x:Name="num2Box" Width="200" HorizontalAlignment="Left" />
+                    </StackPanel>
+                    <StackPanel Grid.Row="1">
+                        <Label Content="Działanie:" />
+                        <RadioButton GroupName="Operation" Content="Suma" IsChecked="True" Checked="RadioButton_Checked" />
+                        <RadioButton GroupName="Operation" Content="Różnica" Checked="RadioButton_Checked" />
+                        <RadioButton GroupName="Operation" Content="Iloczyn" Checked="RadioButton_Checked" />
+                        <RadioButton GroupName="Operation" Content="Iloraz" Checked="RadioButton_Checked" />
+                        <Button Content="Oblicz" Width="100" HorizontalAlignment="Left" Margin="0,10" Click="CalculateButton_Click" />
+                        <Label Content="Wynik:" />
+                        <TextBlock x:Name="resultBox" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Zadanie 3">
+                <Grid x:Name="ex3">
+                    <Button Content="Wciśnij" x:Name="ex3Button" Width="50" Height="25" MouseEnter="Button_MouseEnter" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Zadanie 4">
+                <StackPanel Margin="10">
+                    <Label Content="Wpisz numer PESEL:" />
+                    <TextBox x:Name="peselBox" Width="200" HorizontalAlignment="Left" />
+                    <Button Content="Zatwierdź" Width="100" HorizontalAlignment="Left" Margin="0,10" Click="veryfyButton_Click" />
+                    <Label x:Name="veryfyResultLabel" />
+                    <Button Content="Otwórz folder z plikiem..." Width="200" HorizontalAlignment="Left" Margin="0,10" Click="openFolderButton_Click" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
