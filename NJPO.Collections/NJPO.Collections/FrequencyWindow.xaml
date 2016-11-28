@@ -1,0 +1,19 @@
+﻿<Window x:Class="NJPO.Collections.FrequencyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NJPO.Collections"
+        mc:Ignorable="d"
+        Title="FrequencyWindow" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Content="Częstość:" />
+        <TextBox Grid.Row="1" x:Name="freqBox" IsReadOnly="True" VerticalScrollBarVisibility="Auto" />
+        <Button Grid.Row="2" Content="Zamknij" Width="100" HorizontalAlignment="Right" Margin="5" IsDefault="True" Click="defaultButton_Click" />
+    </Grid>
+</Window>
