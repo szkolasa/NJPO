@@ -26,6 +26,7 @@ namespace NJPO.Threads
     {
         private static int file = 1;
         private CancellationTokenSource token;
+        private DateTime iterativeTime, recursiveTime;
 
         public MainWindow()
         {
@@ -64,34 +65,78 @@ namespace NJPO.Threads
             {
                 token = new CancellationTokenSource();
 
-                Task.Run(() => IterationFactorial(factorial, token.Token), token.Token)
-                    .ContinueWith((t) =>
+                Task.Run(() =>
                     {
-                        if (t.Result != null)
+                        var start = DateTime.Now;
+
+                        BigInteger? result = null;
+
+                        for (int i = 0; i < 100000; i++)
                         {
-                            iterative.Dispatcher.InvokeAsync(() => iterative.Content = t.Result);
+                            result = IterationFactorial(factorial, token.Token);
+
+                            if (result == null)
+                            {
+                                break;
+                            }
+                        }
+
+                        var end = DateTime.Now;
+                        var difference = end.Subtract(start);
+
+                        if (result != null)
+                        {
+                            iterative.Dispatcher.InvokeAsync(() => iterative.Content = result);
+                            timeIterative.Dispatcher.InvokeAsync(() => timeIterative.Content = $"{difference.Minutes}:{difference.Seconds}:{difference.Milliseconds}");
                         }
                         else
                         {
                             iterative.Dispatcher.InvokeAsync(() => iterative.Content = string.Empty);
+                            timeIterative.Dispatcher.InvokeAsync(() => timeIterative.Content = string.Empty);
                         }
-                    });
 
-                Task.Run(() => RecursiveFactorial(factorial, token.Token), token.Token)
-                    .ContinueWith((t) =>
+                        return result;
+                    }, token.Token);
+
+                Task.Run(() => 
                     {
-                        if (t.Result != null)
+                        var start = DateTime.Now;
+
+                        BigInteger? result = null;
+
+                        for (int i = 0; i < 100000; i++)
                         {
-                            recursive.Dispatcher.InvokeAsync(() => recursive.Content = t.Result);
+                            result = RecursiveFactorial(factorial, token.Token);
+                            
+                            if (result == null)
+                            {
+                                break;
+                            }
+                        }
+
+                        var end = DateTime.Now;
+                        var difference = end.Subtract(start);
+
+                        if (result != null)
+                        {
+                            recursive.Dispatcher.InvokeAsync(() => recursive.Content = result);
+                            timeRecursive.Dispatcher.InvokeAsync(() => timeRecursive.Content = $"{difference.Minutes}:{difference.Seconds}:{difference.Milliseconds}");
                         }
                         else
                         {
                             recursive.Dispatcher.InvokeAsync(() => recursive.Content = string.Empty);
+                            timeRecursive.Dispatcher.InvokeAsync(() => timeRecursive.Content = string.Empty);
+                            StopButton.Dispatcher.InvokeAsync(() => StopButton.IsEnabled = false);
+                            StartButton.Dispatcher.InvokeAsync(() => StartButton.IsEnabled = true);
                         }
 
-                        StartButton.Dispatcher.InvokeAsync(() => StartButton.IsEnabled = true);
+                        return result;
+                    })
+                    .ContinueWith((t) =>
+                    {
                         StopButton.Dispatcher.InvokeAsync(() => StopButton.IsEnabled = false);
-                    });
+                        StartButton.Dispatcher.InvokeAsync(() => StartButton.IsEnabled = true);
+                    }, token.Token);
 
                 StopButton.IsEnabled = true;
                 StartButton.IsEnabled = false;
@@ -115,9 +160,8 @@ namespace NJPO.Threads
 
                 for (BigInteger i = 1; i <= number; i++)
                 {
-                    result *= i;
                     token.ThrowIfCancellationRequested();
-                    Thread.Sleep(300);
+                    result *= i;
                 }
 
                 return result;
@@ -131,11 +175,9 @@ namespace NJPO.Threads
 
         private BigInteger? RecursiveFactorial(BigInteger number, CancellationToken token)
         {
-            token.ThrowIfCancellationRequested();
-
             try
             {
-                Thread.Sleep(300);
+                token.ThrowIfCancellationRequested();
                 return number == 0 ? 1 : number * RecursiveFactorial(--number, token);
             }
             catch

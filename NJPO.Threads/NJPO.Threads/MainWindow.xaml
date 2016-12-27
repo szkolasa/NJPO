@@ -16,6 +16,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
@@ -31,6 +32,12 @@
                         <Label x:Name="iterative" />
                         <Label Content="Silnia rekurencyjnie:" Margin="30,0,0,0" />
                         <Label x:Name="recursive" />
+                    </StackPanel>
+                    <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                        <Label Content="Czas iteracyjnie:" />
+                        <Label x:Name="timeIterative" />
+                        <Label Content="Czas rekurencyjnie:" Margin="30,0,0,0" />
+                        <Label x:Name="timeRecursive" />
                     </StackPanel>
                 </Grid>
             </TabItem>
