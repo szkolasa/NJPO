@@ -86,7 +86,7 @@ namespace NJPO.Threads
 
                         if (result != null)
                         {
-                            iterative.Dispatcher.InvokeAsync(() => iterative.Content = result);
+                            iterative.Dispatcher.InvokeAsync(() => iterative.Content = String.Format("{0:E}", result));
                             timeIterative.Dispatcher.InvokeAsync(() => timeIterative.Content = $"{difference.Minutes}:{difference.Seconds}:{difference.Milliseconds}");
                         }
                         else
@@ -119,7 +119,7 @@ namespace NJPO.Threads
 
                         if (result != null)
                         {
-                            recursive.Dispatcher.InvokeAsync(() => recursive.Content = result);
+                            recursive.Dispatcher.InvokeAsync(() => recursive.Content = String.Format("{0:E}", result));
                             timeRecursive.Dispatcher.InvokeAsync(() => timeRecursive.Content = $"{difference.Minutes}:{difference.Seconds}:{difference.Milliseconds}");
                         }
                         else

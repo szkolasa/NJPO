@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace NJPO.Database
 {
@@ -23,12 +24,18 @@ namespace NJPO.Database
 
         }
 
-        public SqlDataReader Query(string query)
+        public DbDataReader Query(string query)
         {
-            using (var connection = new SqlConnection(_connection))
+            using (DbConnection connection = new SqlConnection())
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Connection.Open();
+                connection.ConnectionString = _connection;
+
+                connection.Open();
+
+                DbCommand command = connection.CreateCommand();
+                command.Connection = connection;
+                command.CommandText = query;
+
                 return command.ExecuteReader();
             }
         }

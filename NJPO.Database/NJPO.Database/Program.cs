@@ -12,7 +12,7 @@ namespace NJPO.Database
         {
             var connection = DBConnector.Instance;
 
-            var result = connection.Query("SELECT * FROM phonebook");
+            
 
             Console.ReadLine();
         }
