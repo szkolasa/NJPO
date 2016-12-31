@@ -24,7 +24,32 @@ namespace NJPO.Database
 
         }
 
+        /// <summary>
+        /// Executes Query statements like Select
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         public DbDataReader Query(string query)
+        {
+            DbConnection connection = new SqlConnection();
+            connection.ConnectionString = _connection;
+
+            connection.Open();
+
+            DbCommand command = connection.CreateCommand();
+            command.Connection = connection;
+            command.CommandText = query;
+
+            return command.ExecuteReader();
+        }
+
+
+        /// <summary>
+        /// Executes NonQuery statements like Insert, Update, Delete
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        public int NonQuery(string query)
         {
             using (DbConnection connection = new SqlConnection())
             {
@@ -36,7 +61,7 @@ namespace NJPO.Database
                 command.Connection = connection;
                 command.CommandText = query;
 
-                return command.ExecuteReader();
+                return command.ExecuteNonQuery();
             }
         }
     }
