@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NJPO.UnitTest.QuadraticEqua
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NJPO.UnitTest.UnitTests", "NJPO.UnitTest.UnitTests\NJPO.UnitTest.UnitTests.csproj", "{83958987-2A58-474A-8DD5-F9EC74BF7424}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NJPO.UnitTest.Sort", "NJPO.UnitTest.Sort\NJPO.UnitTest.Sort.csproj", "{C254462E-81D0-420C-A755-4E47DDBAA15D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NJPO.Database", "..\NJPO.Database\NJPO.Database\NJPO.Database.csproj", "{74C32D60-CDB6-42A4-9EC6-C16402F21633}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{83958987-2A58-474A-8DD5-F9EC74BF7424}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83958987-2A58-474A-8DD5-F9EC74BF7424}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83958987-2A58-474A-8DD5-F9EC74BF7424}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C254462E-81D0-420C-A755-4E47DDBAA15D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C254462E-81D0-420C-A755-4E47DDBAA15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C254462E-81D0-420C-A755-4E47DDBAA15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C254462E-81D0-420C-A755-4E47DDBAA15D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C32D60-CDB6-42A4-9EC6-C16402F21633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C32D60-CDB6-42A4-9EC6-C16402F21633}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C32D60-CDB6-42A4-9EC6-C16402F21633}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C32D60-CDB6-42A4-9EC6-C16402F21633}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

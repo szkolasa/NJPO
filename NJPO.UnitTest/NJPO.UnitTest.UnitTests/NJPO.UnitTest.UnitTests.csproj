@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NJPO.Database">
+      <HintPath>..\..\NJPO.Database\NJPO.Database\bin\Debug\NJPO.Database.exe</HintPath>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -45,19 +48,27 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
     <Compile Include="QuadraticEquationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SortTests.cs" />
+    <Compile Include="PhoneBookTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NJPO.UnitTest.QuadraticEquation\NJPO.UnitTest.QuadraticEquation.csproj">
       <Project>{15aa944c-f77a-4da4-a7d5-253d60ae63b8}</Project>
       <Name>NJPO.UnitTest.QuadraticEquation</Name>
-      <Private>False</Private>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\NJPO.UnitTest.Sort\NJPO.UnitTest.Sort.csproj">
+      <Project>{c254462e-81d0-420c-a755-4e47ddbaa15d}</Project>
+      <Name>NJPO.UnitTest.Sort</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

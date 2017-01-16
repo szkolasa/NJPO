@@ -28,6 +28,11 @@ namespace NJPO.UnitTest.QuadraticEquation
         {
             x1 = x2 = null;
 
+            if (A == 0)
+            {
+                throw new DivideByZeroException();
+            }
+
             var delta = Delta();
 
             if (delta < 0)
