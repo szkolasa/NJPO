@@ -37,7 +37,7 @@ namespace NJPO.UnitTest.UnitTests
             Assert.AreEqual(difference.Minutes, 0);
         }
 
-        /*[TestMethod]
+        [TestMethod]
         public void ShouldSortSlowerThanMinute()
         {
             // Arrange
@@ -59,6 +59,6 @@ namespace NJPO.UnitTest.UnitTests
 
             // Assert
             Assert.IsTrue(difference.TotalMinutes > 1);
-        } */
+        }
     }
 }
